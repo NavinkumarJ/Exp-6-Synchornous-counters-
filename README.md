@@ -32,6 +32,7 @@ The Q outputs of each flip-flop will serve as the respective binary bits of the 
  
 
 Four-bit “Up” Counter
+
 ![image](https://user-images.githubusercontent.com/36288975/169644758-b2f4339d-9532-40c5-af40-8f4f8c942e2c.png)
 
 
@@ -41,31 +42,68 @@ Four-bit “Up” Counter
 As well as counting “up” from zero and increasing or incrementing to some preset value, it is sometimes necessary to count “down” from a predetermined value to zero allowing us to produce an output that activates when the zero count or some other pre-set value is reached.
 
 This type of counter is normally referred to as a Down Counter, (CTD). In a binary or BCD down counter, the count decreases by one for each external clock pulse from some preset value. Special dual purpose IC’s such as the TTL 74LS193 or CMOS CD4510 are 4-bit binary Up or Down counters which have an additional input pin to select either the up or down count mode.
+
 ![image](https://user-images.githubusercontent.com/36288975/169644844-1a14e123-7228-4ed8-81a9-eb937dff4ac8.png)
 
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+#### 1.Synchronous Counters can be made from Toggle or D-type flip-flops.
+#### 2.Synchronous counters are easier to design than asynchronous counters.
+#### 3.They are called synchronous counters because the clock input of the flip-flops are all clocked together at the same time with the same clock signal.
+#### 4.Due to this common clock pulse all output states switch or change simultaneously.
+#### 5.With all clock inputs wired together there is no inherent propagation delay.
+#### 6.Synchronous counters are sometimes called parallel counters as the clock is fed in parallel to all flip-flops.
+#### 7.The inherent memory circuit keeps track of the counters present state.
+#### 8.The count sequence is controlled using logic gates.
+#### 9.Overall faster operation may be achieved compared to Asynchronous counters.
 
 
 
 ### PROGRAM 
-/*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
 
+Developed by: NAVIN KUMAR J
+
+RegisterNumber:  22009212
+
+```
+module uc(input clk,input reset,output[0:3]counter);
+reg[0:3] counter_up;
+always@(posedge clk or posedge reset)
+begin
+if(reset)
+counter_up<=4'd0;
+else
+counter_up<=counter_up+4'd1;
+end
+assign counter=counter_up;
+endmodule
+
+
+DOWN COUNTER:-
+
+module dc(input clk,input reset,output[0:3]counter);
+reg[0:3] counter_down;
+always@(posedge clk or posedge reset)
+begin
+if(reset)
+counter_down<=4'd0;
+else
+counter_down<=counter_down-4'd1;
+end
+assign counter=counter_down;
+endmodule
+```
 
 
 
 
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+![image](./uprtl.png)
 
-
-
+![image](./downrtl.png)
 
 
 
@@ -73,16 +111,18 @@ RegisterNumber:
 
 
 ### TIMING DIGRAMS FOR COUNTER  
+![image](./tdup.png)
 
-
-
+![image](./tddown.png)
 
 
 ### TRUTH TABLE 
-
-
-
+### UP COUNTER:
+![image](./ttup.png)
+### DOWN COUNTER:
+![image](./ttdown.png)
 
 
 
 ### RESULTS 
+Thus,design of up counter and down counter and to verify its truth table in Quartus using Verilog programming is executed successfully
