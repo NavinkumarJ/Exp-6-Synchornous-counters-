@@ -48,15 +48,15 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-#### 1.Synchronous Counters can be made from Toggle or D-type flip-flops.
-#### 2.Synchronous counters are easier to design than asynchronous counters.
-#### 3.They are called synchronous counters because the clock input of the flip-flops are all clocked together at the same time with the same clock signal.
-#### 4.Due to this common clock pulse all output states switch or change simultaneously.
-#### 5.With all clock inputs wired together there is no inherent propagation delay.
-#### 6.Synchronous counters are sometimes called parallel counters as the clock is fed in parallel to all flip-flops.
-#### 7.The inherent memory circuit keeps track of the counters present state.
-#### 8.The count sequence is controlled using logic gates.
-#### 9.Overall faster operation may be achieved compared to Asynchronous counters.
+```
+1.Using if statement construct a 4bit UP Counter.
+
+2.Repeat the same for 4bit DOWN Counter.
+
+3.Find RTL and Timing Diagram for both the counters.
+
+4.End the program.
+```
 
 
 
